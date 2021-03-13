@@ -106,6 +106,13 @@ function isSentence(inputText) {
     }
 }
 
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    if (key === "Enter") {
+        $('#lookup').click();
+    }
+});
+
 function wikiJS(oldWord, language, scrollTo) {
     const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var jqxhr = $.get(URL, function() {})
