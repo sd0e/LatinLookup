@@ -94,6 +94,6 @@ main {
     background-color: #ff0000;
 }
 
-.lookupButton:hover {
+.lookupButton.red:hover {
     background-color: #e40000;
 }
