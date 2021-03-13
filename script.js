@@ -106,13 +106,13 @@ function isSentence(inputText) {
     }
 }
 
-function wikiJS(oldWord, language, scrollTo)  {
-    var word = oldWord.toLowerCase();
-    const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + word + "&action=query&prop=extracts&format=json";
+function wikiJS(oldWord, language, scrollTo) {
+    const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var jqxhr = $.get(URL, function() {})
         .done(function() {
             var response = jqxhr.responseJSON.query.pages;
             var object = Object.values(response);
+            console.log(finished);
             var finished = object[0].extract;
             var languages = finished.split("<h2>");
             var inputLanguage = language.toLowerCase();
