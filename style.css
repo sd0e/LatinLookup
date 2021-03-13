@@ -89,3 +89,11 @@ main {
     display: block;
     margin-top: 2rem;
 }
+
+.lookupButton.red {
+    background-color: #ff0000;
+}
+
+.lookupButton:hover {
+    background-color: #e40000;
+}

@@ -18,6 +18,7 @@
             <h2>Enter any Latin word or sentence</h2>
             <input type="text" placeholder="Enter any Latin word or sentence here" class="bodyInput">
             <a class="lookupButton" onclick="lookupText($('.bodyInput').val());">Lookup</a>
+            <a class="lookupButton red" onclick="window.open('https://en.wiktionary.org/wiki/' + $('.bodyInput').val() + '#Latin');">Not Working? Lookup on Wiktionary</a>
             <div class="results"></div>
             <p class="attribution">Thank you to Wiktionary for making this project possible.</p>
         </main>
