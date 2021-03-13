@@ -124,6 +124,7 @@ function wikiJS(oldWord, language, scrollTo) {
                     $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>` + wordInfo + `</div>`);
                     $('#Latin').remove();
                     $('hr').remove();
+                    $('#Conjugation').parent().append('<br><br><a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin">Click here to see the conjugation on Wiktionary</a>');
                     $('.mention').each(function(index) {
                         $(this).html(`<a href="javascript:addWord('` + $(this).text() + `')">` + $(this).text() + `</a>`);
                     });
