@@ -57,17 +57,26 @@ main {
     background-color: #eeeeee;
     padding: 0.7rem;
     font-size: 0.9rem;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 }
 
 .bodyInput:hover {
     background-color: #e6e6e6;
     transition: 0.2s ease-in-out;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .bodyInput:focus {
     outline: none;
     background-color: #dfdfdf;
     transition: 0.2s ease-in-out;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .lookupButton {
@@ -84,6 +93,9 @@ main {
     cursor: pointer;
     background-color: #10537a;
     transition: 0.2s ease-in-out;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .individualResult {
