@@ -114,12 +114,15 @@ document.addEventListener("keydown", function(event) {
 });
 
 function wikiJS(oldWord, language, scrollTo) {
+    $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>
+    <div class="loadingDiv"><img src="loading.gif" alt="Loading" class="loadingIcon"/><span class="loadingInfo">Loading...</span></div>
+    <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span></div>
+</div>`);
     const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var jqxhr = $.get(URL, function() {})
         .done(function() {
             var response = jqxhr.responseJSON.query.pages;
             var object = Object.values(response);
-            console.log(finished);
             var finished = object[0].extract;
             var languages = finished.split("<h2>");
             var inputLanguage = language.toLowerCase();
@@ -128,7 +131,8 @@ function wikiJS(oldWord, language, scrollTo) {
                 var toCheckLower = toCheck.toLowerCase();
                 if (toCheckLower.indexOf(inputLanguage) >= 0) {
                     var wordInfo = item;
-                    $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>` + wordInfo + `</div>`);
+                    $('.loadingDiv').hide();
+                    $('.individualResult' + oldWord).append(wordInfo);
                     $('#Latin').remove();
                     $('hr').remove();
                     $('#Conjugation').parent().append('<br><br><a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin">Click here to see the conjugation on Wiktionary</a>');
@@ -142,7 +146,8 @@ function wikiJS(oldWord, language, scrollTo) {
             });
         })
         .fail(function() {
-            return "Fetch Error";
+            $('.errorDiv').show();
+            $('.loadingDiv').hide();
         })
 }
 

@@ -120,3 +120,21 @@ main {
 .lookupButton.red:hover {
     background-color: #e40000;
 }
+
+.loadingIcon {
+    height: 3rem;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
+.loadingInfo {
+    line-height: 3rem;
+    vertical-align: middle;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.material-icons.errorIcon {
+    line-height: 3rem;
+    vertical-align: middle;
+}
