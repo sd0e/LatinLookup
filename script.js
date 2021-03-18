@@ -131,8 +131,9 @@ function wikiJS(oldWord, language, scrollTo) {
                 var toCheckLower = toCheck.toLowerCase();
                 if (toCheckLower.indexOf(inputLanguage) >= 0) {
                     var wordInfo = item;
+                    console.log(wordInfo);
                     $('.loadingDiv').hide();
-                    $('.individualResult' + oldWord).append(wordInfo);
+                    $('.individualResult#' + oldWord).append(wordInfo);
                     $('#Latin').remove();
                     $('hr').remove();
                     $('#Conjugation').parent().append('<br><br><a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin">Click here to see the conjugation on Wiktionary</a>');
