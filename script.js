@@ -110,6 +110,12 @@ document.addEventListener("keydown", function(event) {
     const key = event.key;
     if (key === "Enter") {
         $('#lookup').click();
+    } else if (key === "/") {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        $('#lookupInput').focus();
+        event.preventDefault()
+        return false;
     }
 });
 
@@ -126,7 +132,7 @@ function wikiJS(oldWord, language, scrollTo) {
             var finished = object[0].extract;
             var languages = finished.split("<h2>");
             var inputLanguage = language.toLowerCase();
-            languages.forEach(function (item, index) {
+            languages.forEach(function (item) {
                 var toCheck = item.substring(0,30);
                 var toCheckLower = toCheck.toLowerCase();
                 if (toCheckLower.indexOf(inputLanguage) >= 0) {
