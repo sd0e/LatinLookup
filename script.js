@@ -114,6 +114,7 @@ document.addEventListener("keydown", function(event) {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
         $('#lookupInput').focus();
+        $('#lookupInput').select();
         event.preventDefault()
         return false;
     }
