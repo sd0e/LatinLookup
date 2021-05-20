@@ -43,6 +43,33 @@ header {
     vertical-align: middle;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.4rem 1.5rem;
+    background-color: #eeeeee;
+    color: #272727;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+}
+
+.footerLink {
+    color: #383838;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footerLink:hover {
+    color: #14628f;
+}
+
 main {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
