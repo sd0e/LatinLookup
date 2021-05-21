@@ -120,10 +120,11 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-function wikiJS(oldWord, language, scrollTo) {
+function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
     $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>
     <div class="loadingDiv"><img src="loading.gif" alt="Loading" class="loadingIcon"/><span class="loadingInfo">Loading...</span></div>
     <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span></div>
+    <div class="notFoundDiv" id="` + oldWord + `" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">This word is not listed in Wiktionary, both capitalised and not.</span></div>
 </div>`);
     const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var jqxhr = $.get(URL, function() {})
@@ -131,12 +132,18 @@ function wikiJS(oldWord, language, scrollTo) {
             var response = jqxhr.responseJSON.query.pages;
             var object = Object.values(response);
             var finished = object[0].extract;
+            if (finished == undefined) {
+                handleNoWord(oldWord, hasBeenUppercase);
+                return;
+            }
             var languages = finished.split("<h2>");
             var inputLanguage = language.toLowerCase();
+            var exists = false;
             languages.forEach(function (item) {
                 var toCheck = item.substring(0,30);
                 var toCheckLower = toCheck.toLowerCase();
                 if (toCheckLower.indexOf(inputLanguage) >= 0) {
+                    exists = true;
                     var wordInfo = item;
                     console.log(wordInfo);
                     $('.loadingDiv').hide();
@@ -150,13 +157,35 @@ function wikiJS(oldWord, language, scrollTo) {
                     if (scrollTo == true) {
                         document.getElementById(oldWord).scrollIntoView();
                     }
+                    return;
                 }
             });
+            if (exists == false) {
+                handleNoWord(oldWord, hasBeenUppercase);
+                return;
+            }
         })
         .fail(function() {
             $('.errorDiv').show();
             $('.loadingDiv').hide();
+            return;
         })
+}
+
+function handleNoWord(oldWord, hasBeenUppercase) {
+    if (oldWord != oldWord.toLowerCase() && hasBeenUppercase != true) {
+        $('.individualResult#' + oldWord).remove();
+        wikiJS(oldWord.toLowerCase(), 'Latin', false, true);
+    } else {
+        if (oldWord == oldWord.toLowerCase() && hasBeenUppercase != true) {
+            $('.individualResult#' + oldWord).remove();
+            let capitalised = oldWord.charAt(0).toUpperCase() + oldWord.slice(1);
+            wikiJS(capitalised, 'Latin', false, true);
+        } else {
+            $('.notFoundDiv#' + oldWord).show();
+            $('.loadingDiv').hide();
+        }
+    }
 }
 
 function lookupText(inputText) {
