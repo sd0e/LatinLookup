@@ -189,7 +189,7 @@ function handleNoWord(oldWord, hasBeenUppercase) {
 }
 
 function lookupText(inputText) {
-    inputText = removeDiacritics(inputText).toLowerCase();
+    inputText = removeDiacritics(inputText);
     $('.results').html('');
     let sentence = isSentence(inputText);
     if (sentence == false) {
