@@ -122,11 +122,14 @@ document.addEventListener("keydown", function(event) {
 
 function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
     $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>
-    <div class="loadingDiv"><img src="loading.gif" alt="Loading" class="loadingIcon"/><span class="loadingInfo">Loading...</span></div>
-    <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span></div>
+    <div class="loadingDiv"><img src="loading.gif" alt="Loading" class="loadingIcon"/><span class="loadingInfo" id="` + oldWord + `">Loading...</span></div>
+    <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span> <a href="https://en.wiktionary.org/wiki/` + oldWord + `#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a></div>
     <div class="notFoundDiv" id="` + oldWord + `" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">This word is not listed in Wiktionary, both capitalised and not.</span></div>
 </div>`);
     const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
+    var longLoad = setTimeout(function() {
+        $('.loadingInfo#' + oldWord).html('This seems to be taking a while to load. <a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a>')
+    }, 4000);
     var jqxhr = $.get(URL, function() {})
         .done(function() {
             var response = jqxhr.responseJSON.query.pages;
@@ -140,12 +143,12 @@ function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
             var inputLanguage = language.toLowerCase();
             var exists = false;
             languages.forEach(function (item) {
+                clearTimeout(longLoad);
                 var toCheck = item.substring(0,30);
                 var toCheckLower = toCheck.toLowerCase();
                 if (toCheckLower.indexOf(inputLanguage) >= 0) {
                     exists = true;
                     var wordInfo = item;
-                    console.log(wordInfo);
                     $('.loadingDiv').hide();
                     $('.individualResult#' + oldWord).append(wordInfo);
                     $('#Latin').remove();
@@ -165,7 +168,8 @@ function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
                 return;
             }
         })
-        .fail(function() {
+        .fail(function(xhr, status, error) {
+            console.log(status);
             $('.errorDiv').show();
             $('.loadingDiv').hide();
             return;
