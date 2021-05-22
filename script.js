@@ -212,6 +212,8 @@ function addWord(inputText) {
 }
 
 function delWord(inputWord) {
+    inputWord = removeDiacritics(inputWord);
     inputWord = document.getElementById(inputWord);
+    word = document.getElementById(inputWord);
     inputWord.parentNode.removeChild(inputWord);
 }
