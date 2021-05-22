@@ -1,3 +1,4 @@
+# Latin Lookup
 ![Latin Lookup Screenshot](main.png)
 
 # Introduction
