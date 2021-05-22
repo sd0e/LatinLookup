@@ -210,3 +210,8 @@ function addWord(inputText) {
     inputText = removeDiacritics(inputText);
     wikiJS(inputText, 'Latin', true);
 }
+
+function delWord(inputWord) {
+    inputWord = document.getElementById(inputWord);
+    inputWord.parentNode.removeChild(inputWord);
+}
