@@ -121,7 +121,7 @@ document.addEventListener("keydown", function(event) {
 });
 
 function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
-    $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + oldWord + `</h2>
+    $('.results').append(`<div class="individualResult" id="` + oldWord + `"><h2>` + `<a href="javascript:delWord('` + oldWord + `')" style="text-decoration:none;">&#9747; </a>` + oldWord + `</h2>
     <div class="loadingDiv"><img src="loading.gif" alt="Loading" class="loadingIcon"/><span class="loadingInfo" id="` + oldWord + `">Loading...</span></div>
     <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span> <a href="https://en.wiktionary.org/wiki/` + oldWord + `#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a></div>
     <div class="notFoundDiv" id="` + oldWord + `" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">This word is not listed in Wiktionary, both capitalised and not.</span></div>
