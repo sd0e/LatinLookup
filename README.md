@@ -1,6 +1,4 @@
 <div align="center">
-# Latin Lookup
-
 ![Latin Lookup Screenshot](main.png)
 </div>
 
