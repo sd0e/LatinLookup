@@ -129,7 +129,7 @@ function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
     const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var longLoad = setTimeout(function() {
         $('.loadingInfo#' + oldWord).html('This seems to be taking a while to load. <a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a>')
-    }, 4000);
+    }, 6000);
     var jqxhr = $.get(URL, function() {})
         .done(function() {
             var response = jqxhr.responseJSON.query.pages;
