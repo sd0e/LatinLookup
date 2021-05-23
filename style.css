@@ -63,6 +63,10 @@ footer {
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
 }
 
+.footerText {
+    white-space: pre-wrap;
+}
+
 .footerLink {
     color: #383838;
     cursor: pointer;
@@ -92,11 +96,11 @@ main {
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     margin-bottom: 0.7rem;
     margin-right: 0.3rem;
+    transition: 0.2s ease-in-out;
 }
 
 .bodyInput:hover {
     background-color: #e6e6e6;
-    transition: 0.2s ease-in-out;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -105,7 +109,6 @@ main {
 .bodyInput:focus {
     outline: none;
     background-color: #dfdfdf;
-    transition: 0.2s ease-in-out;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -120,12 +123,12 @@ main {
     display: inline-block;
     font-size: 0.9rem;
     margin-bottom: 0.7rem;
+    transition: 0.2s ease-in-out;
 }
 
 .lookupButton:hover {
     cursor: pointer;
     background-color: #10537a;
-    transition: 0.2s ease-in-out;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -144,14 +147,6 @@ main {
 .attribution {
     display: block;
     margin-top: 2rem;
-}
-
-.lookupButton.red {
-    background-color: #ff0000;
-}
-
-.lookupButton.red:hover {
-    background-color: #e40000;
 }
 
 .loadingIcon {
