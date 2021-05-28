@@ -43,6 +43,11 @@ header {
     vertical-align: middle;
 }
 
+h2 {
+    line-height: 2rem;
+    vertical-align: middle;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -136,7 +141,10 @@ main {
 
 .individualResult {
     background-color: #ffffff;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 0.2rem;
     border-radius: 1rem;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -165,4 +173,22 @@ main {
 .material-icons.errorIcon {
     line-height: 3rem;
     vertical-align: middle;
+}
+
+.deleteWord {
+    line-height: 2.5rem;
+    vertical-align: middle;
+}
+
+.deleteIcon {
+    color: black;
+    transition: 0.2s ease-in-out;
+    line-height: 2.5rem;
+    vertical-align: middle;
+    margin-bottom: 0.1rem;
+    margin-right: 0.5rem;
+}
+
+.deleteIcon:hover {
+    color: #424242
 }
