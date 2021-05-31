@@ -155,7 +155,20 @@ function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
                     $('hr').remove();
                     $('#Conjugation').parent().append('<br><br><a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin">Click here to see the conjugation on Wiktionary</a>');
                     $('.mention').each(function(index) {
-                        $(this).html(`<a href="javascript:addWord('` + $(this).text() + `')">` + $(this).text() + `</a>`);
+                        if ($(this).attr('lang') == 'la') {
+                            if ($(this).text().toLowerCase() != oldWord.toLowerCase()) {
+                                $(this).html(`<a href="javascript:addWord('` + $(this).text() + `')">` + $(this).text() + `</a>`);
+                            }
+                        }
+                    });
+                    $('*[lang=la]').each(function(index) {
+                        if (!$(this).hasClass('headword')) {
+                            if ($(this).attr('lang') == 'la') {
+                                if ($(this).text().toLowerCase() != oldWord.toLowerCase()) {
+                                    $(this).html(`<a href="javascript:addWord('` + $(this).text() + `')">` + $(this).text() + `</a>`);
+                                }
+                            }  
+                        }
                     });
                     if (scrollTo == true) {
                         document.getElementById(oldWord).scrollIntoView();
