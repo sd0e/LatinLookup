@@ -212,7 +212,7 @@ function lookupText(inputText) {
     if (sentence == false) {
         wikiJS(inputText, 'Latin', false);
     } else if (sentence == true) {
-        let splitInput = inputText.split(' ');
+        let splitInput = inputText.trim().split(' ');
         splitInput.forEach(function (item, index) {
             wikiJS(item, 'Latin', false);
         });
