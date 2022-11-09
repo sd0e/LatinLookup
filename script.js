@@ -126,7 +126,7 @@ function wikiJS(oldWord, language, scrollTo, hasBeenUppercase) {
     <div class="errorDiv" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">There was an error looking up the word on our end.</span> <a href="https://en.wiktionary.org/wiki/` + oldWord + `#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a></div>
     <div class="notFoundDiv" id="` + oldWord + `" style="display: none;"><i class="material-icons errorIcon">error_outline</i><span class="loadingInfo">This word is not listed in Wiktionary, both capitalised and not.</span></div>
 </div>`);
-    const URL = "https://crossrun.herokuapp.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
+    const URL = "https://crossrun.onrender.com/https://en.wiktionary.org/w/api.php?titles=" + oldWord + "&action=query&prop=extracts&format=json";
     var longLoad = setTimeout(function() {
         $('.loadingInfo#' + oldWord).html('This seems to be taking a while to load. <a href="https://en.wiktionary.org/wiki/' + oldWord + '#Latin" target="_blank" class="footerLink">Click here to lookup the word on Wiktionary.</a>')
     }, 6000);
