@@ -1,6 +1,6 @@
 # Latin Lookup
 
-> There is a new version of Latin Lookup in beta. It can be found from the repository [sd0e/latinlookup-dev](https://github.com/sd0e/latinlookup-dev).
+> There is a new version of Latin Lookup in beta. It can be found from the repository [sd0e/latinlookup-dev](https://github.com/sd0e/latinlookup-dev). This version continues to be the main version, however, until the new one is fully released.
 
 ![Latin Lookup Screenshot](main.png)
 
